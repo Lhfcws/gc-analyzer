@@ -4,3 +4,5 @@
 .idea
 *.iml
 target/
+**/cms-gc.log
+**/parnew-gc.log
