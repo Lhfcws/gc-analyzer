@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GC Analyze</title>
+  <script src="web/js/lib/md5.js"></script>
+  <script src="web/js/lib/echarts.js"></script>
+  <script src="web/js/lib/jquery.min.js"></script>
+  <script src="web/js/lib/bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="web/js/lib/bootstrap/css/bootstrap.css" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
+
+  <script src="web/js/mylib/util.js"></script>
+  <script src="web/js/mylib/drawer.js"></script>
+  <script src="web/js/mylib/layout.js"></script>
+  <script src="web/js/mylib/cms_layout.js"></script>
+
+  <!-- TEST -->
+  <!--<script src="_temp_gc_analyze.js"></script>-->
+
+  <!-- RELEASE -->
+  <script>
+    $(function () {
+      var urlArr = window.location.href.split("?");
+      var urlParams = "?" + urlArr[urlArr.length - 1];
+      console.log("Init params: " + urlParams);
+      var url = "/local";
+      if (urlParams !== "?")
+        url = url + urlParams
+
+      var successFunc = function (json) {
+        Main.cms_layout($("#main"), json);
+      };
+
+      Util.ajaxGet(url, successFunc);
+    });
+  </script>
+</head>
+<body>
+<div class="container" id="main">
+
+</div>
+</body>
+</html>
