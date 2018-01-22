@@ -10,7 +10,6 @@ use CoffeeScript to implements OOP as ES6 is not supported by most of the browse
 ###
 class Drawer
   @draw: (htmlId, option, title) ->
-    console.log(option)
     app = echarts.init(document.getElementById(htmlId));
     app.title = title
     app.setOption(option)
@@ -321,5 +320,4 @@ class PieOption extends Option
         }
       ]
     }, this.otherSettings)
-    console.log(ret)
     return ret

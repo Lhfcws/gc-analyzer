@@ -19,7 +19,6 @@ Drawer = (function() {
 
   Drawer.draw = function(htmlId, option, title) {
     var app;
-    console.log(option);
     app = echarts.init(document.getElementById(htmlId));
     app.title = title;
     return app.setOption(option);
@@ -469,7 +468,6 @@ PieOption = (function(superClass) {
         }
       ]
     }, this.otherSettings);
-    console.log(ret);
     return ret;
   };
 

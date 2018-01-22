@@ -90,7 +90,6 @@ class Main
   @appendToContainer: (container, rows) ->
     for row in rows
       rowHtml = row.toHtml()
-      console.log(rowHtml)
       container.append(rowHtml)
     return container
 

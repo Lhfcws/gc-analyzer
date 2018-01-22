@@ -106,7 +106,6 @@ Main = (function() {
     for (i = 0, len = rows.length; i < len; i++) {
       row = rows[i];
       rowHtml = row.toHtml();
-      console.log(rowHtml);
       container.append(rowHtml);
     }
     return container;
