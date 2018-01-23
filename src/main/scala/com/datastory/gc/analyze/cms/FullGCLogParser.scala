@@ -49,24 +49,18 @@ class FullGCLogParser extends AbstractLogParser{
     parser.addPtr(4)
     vdouble = parser.extractFromPtrUntilCharIs(' ').toDouble
     pr.put("OldGen.cost", vdouble * 1000)
-    pr.put("MajorGC.cost", vdouble * 1000)
-    pr.put("FullGC.cost", vdouble * 1000)
-    pr.put("PausedGC.cost", vdouble * 1000)
 
     // Heap
     parser.addPtr(7)
     vint = parser.extractFromPtrUntilCharIs('K').toInt
-    pr.put("FullGC.Before GC", vint * 1.0 / 1024)
     pr.put("Heap.Before GC", vint * 1.0 / 1024)
 
     parser.addPtr(3)
     vint = parser.extractFromPtrUntilCharIs('K').toInt
-    pr.put("FullGC.After GC", vint * 1.0 / 1024)
     pr.put("Heap.After GC", vint * 1.0 / 1024)
 
     parser.addPtr(2)
     vint = parser.extractFromPtrUntilCharIs('K').toInt
-    pr.put("FullGC.allocated", vint * 1.0 / 1024)
     pr.put("Heap.allocated", vint * 1.0 / 1024)
 
     // Perm
@@ -86,6 +80,12 @@ class FullGCLogParser extends AbstractLogParser{
     parser.addPtr(5)
     vdouble = parser.extractFromPtrUntilCharIs(' ').toDouble
     pr.put("Heap.cost", vdouble * 1000)
+
+    parser.locatePtrAtEnd(" real=")
+
+    vdouble = parser.extractFromPtrUntilCharIs(' ').toDouble
+    pr.put("MajorGC.cost", vdouble * 1000)
+    pr.put("PausedGC.cost", vdouble * 1000)
 
     return pr
   }

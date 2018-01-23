@@ -9,4 +9,4 @@
 -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:/path/to/gc.log
 ~~~
 
-目前暂时仅支持CMS，未来支持G1。
+目前暂时仅支持CMS，未来支持G1。 暂时不支持过大的gc日志分析（取样逻辑和时间选取功能未考虑好），建议在10m左右。

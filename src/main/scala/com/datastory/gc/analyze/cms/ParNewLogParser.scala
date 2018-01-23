@@ -52,6 +52,7 @@ class ParNewLogParser extends AbstractLogParser {
     vdouble = parser.extractFromPtrUntilCharIs(' ').toDouble
     pr.put("YoungGen.cost", vdouble * 1000)
     pr.put("MinorGC.cost", vdouble * 1000)
+    pr.put("PausedGC.cost", vdouble * 1000)
 
     // Heap
     parser.addPtr(7)
